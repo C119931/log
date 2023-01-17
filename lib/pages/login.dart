@@ -4,6 +4,7 @@ import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mylogin_191/pages/ProfileScreen.dart';
 import 'package:mylogin_191/utility/imagewidget.dart';
 
 import 'SignUp.dart';
@@ -28,6 +29,8 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {});
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: _email.text, password: _password.text);
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => profilePage()));
     } catch (e) {
       log(e.toString());
     }
